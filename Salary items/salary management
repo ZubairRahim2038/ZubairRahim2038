@@ -1,0 +1,44 @@
+zubair rahim 
+class Employee:
+    def __init__(self, emp_id, name, salary):
+        self.emp_id = emp_id
+        self.name = name
+        self.salary = salary
+        self.salary_items = {}  # Dictionary to store salary items
+
+    def add_salary_item(self, item_name, amount):
+        self.salary_items[item_name] = amount
+
+class SalaryManagement:
+    def __init__(self):
+        self.employees = []
+
+    def add_employee(self, emp):
+        self.employees.append(emp)
+
+    def generate_salary_report(self):
+        print("Salary Report:")
+        print("Employee ID\tName\t\tSalary\t\tSalary Items")
+        print("-------------------------------------------------")
+        for emp in self.employees:
+            print(f"{emp.emp_id}\t\t{emp.name}\t\t{emp.salary}\t\t{emp.salary_items}")
+        print("-------------------------------------------------")
+
+# Example Usage:
+employee1 = Employee(1, "Muneeb Iqbal", 50000)
+employee1.add_salary_item("Bonus", 2000)
+employee1.add_salary_item("Overtime", 1500)
+
+employee2 = Employee(2, "Jane Smith", 60000)
+employee2.add_salary_item("Health Allowance", 1000)
+
+employee3 = Employee(3, "Sharjeel Malik", 55000)
+employee3.add_salary_item("Bonus", 1000)
+employee3.add_salary_item("Transport Allowance", 1200)
+
+salary_management = SalaryManagement()
+salary_management.add_employee(employee1)
+salary_management.add_employee(employee2)
+salary_management.add_employee(employee3)
+
+salary_management.generate_salary_report()
